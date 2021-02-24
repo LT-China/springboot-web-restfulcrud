@@ -54,12 +54,13 @@
 <!--		</nav>-->
 		<!-- 引入抽取的topbar -->
 		<!-- 模板名， 会使用thymeleaf的前后缀规则进行解析-->
-		<div th:replace="~{dashboard::topbar}"></div>
-
+<!--		<div th:replace="~{dashboard::topbar}"></div>-->
+		<div th:replace="commons/bar::topbar"></div>
 		<div class="container-fluid">
 			<div class="row">
 					<!-- 引入侧边栏-->
-				<div th:replace="~{dashboard::#leftSideBar}"></div>
+<!--				<div th:replace="~{dashboard::#leftSideBar}"></div>-->
+					<div th:replace="commons/bar::#leftSideBar"></div>
 <!--				<nav class="col-md-2 d-none d-md-block bg-light sidebar" >-->
 <!--					<div class="sidebar-sticky">-->
 <!--						<ul class="nav flex-column">-->
