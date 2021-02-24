@@ -27,7 +27,6 @@ public class EmployeeController {
     //添加employee
     @GetMapping("/empAdd")
     public String toAddEmployee(){
-
         return "/emp/addEmployee";
     }
 }
