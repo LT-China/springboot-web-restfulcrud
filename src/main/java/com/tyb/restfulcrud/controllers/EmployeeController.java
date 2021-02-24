@@ -23,4 +23,11 @@ public class EmployeeController {
         //thymeleaf 默认自动拼串-> 到 classpath:/templates/ 寻找/emp/list.html 页面
         return "/emp/list";
     }
+
+    //添加employee
+    @GetMapping("/empAdd")
+    public String toAddEmployee(){
+
+        return "/emp/addEmployee";
+    }
 }
