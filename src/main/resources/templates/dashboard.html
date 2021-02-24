@@ -43,11 +43,11 @@
 
 	<body>
 		<!--引入 topbar-->
-		<div th:replace="commons/bar::topbar(activeRri='main-dashboadr')"></div>
+		<div th:replace="commons/bar::topbar"></div>
 		<div class="container-fluid">
 			<div class="row">
 			<!-- 引入 leftSidebar-->
-				<div th:replace="commons/bar::#leftSideBar(activeRri='leftSideBar')"></div>
+				<div th:replace="commons/bar::#leftSideBar(activeUri='main-dashboadr')"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 					<div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
 						<div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
