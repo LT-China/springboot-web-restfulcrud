@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collection;
@@ -39,12 +40,21 @@ public class EmployeeController {
         return "/emp/addEmployee";
     }
 
+    //SpringMVC 自动将请求参数和入参对象的属性进行一一绑定，要求请求参数的名字和JavaBeanr入参的对象里面的属性名一致
     @PostMapping("/empAdd")
     public String addEmp(Employee employee){
         System.out.println(employee);
+        //保存员工
+        employeeDao.save(employee);
+        //返回到员工页面
         //redirect 重定向一个地址
         //forward 转发到一个地址
         return "redirect:/emps";
     }
 
+    @GetMapping("/emps/{id}")
+    public String toEditEmpInfoPage(@PathVariable("id") Integer id, Model model){
+        System.out.println("ID:" + id);
+        return "/emp/editEmpInfo";
+    }
 }

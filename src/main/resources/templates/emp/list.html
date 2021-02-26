@@ -87,7 +87,7 @@
 									<td th:text="${emp.department}"></td>
 									<td th:text="${#calendars.format(emp.birth, 'yyyy-MM-dd')}"></td>
 									<td>
-										<button class="btn btn-sm btn-primary">Edit</button>
+										<a class="btn btn-sm btn-primary" th:href="@{/emps/}+${emp.id}">Edit</a>
 										<button class="btn btn-sm btn-danger">Remove</button>
 									</td>
 								</tr>
