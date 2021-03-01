@@ -55,6 +55,8 @@ public class EmployeeController {
     @GetMapping("/emps/{id}")
     public String toEditEmpInfoPage(@PathVariable("id") Integer id, Model model){
         System.out.println("ID:" + id);
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("deptInfo", departments);
         return "/emp/editEmpInfo";
     }
 }

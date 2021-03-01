@@ -10,10 +10,8 @@
 
 		<title>Dashboard Template for Bootstrap</title>
 		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.css}" rel="stylesheet">
 
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/dashboard.css" rel="stylesheet">
 		<style type="text/css">
 			/* Chart.js */
 			
@@ -83,7 +81,7 @@
 							<label>Birth</label>
 							<input name="birth" type="text" class="form-control" placeholder="1990-01-01">
 						</div>
-						<button type="submit" class="btn btn-primary">添加</button>
+						<button type="submit" class="btn btn-primary">Save</button>
 					</form>
 				</main>
 			</div>
@@ -92,12 +90,12 @@
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:href="@{/asserts/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/popper.min.js" th:href="@{/asserts/js/popper.min.js}"></script>
+		<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:href="@{/asserts/js/bootstrap.min.js}"></script>
 
 		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+		<script type="text/javascript" src="asserts/js/feather.min.js" th:href="@{/asserts/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
 		</script>
