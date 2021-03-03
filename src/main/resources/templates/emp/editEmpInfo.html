@@ -56,8 +56,11 @@
 							1. SpringMVC中配置HiddenHttpMethodFilter (Spring 自动配置好的)
 							2. 页面创建一个post表单
 							3. 创建一个input项 name="_method" 值就是指定请求方式
+							4. 需要全局配置文件配置spring.mvc.hiddenmethod.filter.enabled=true
 						-->
-						<input type="hidden" name="_method" value="put" th:if="${emp!=null}"/>
+						<input type="hidden" name="_method" value="put" th:if="${emp!=null}">
+						<!-- 带上需要修改的员工的ID-->
+						<input type="hidden" name="id" th:if="${emp!=null}" th:value="${emp.id}">
 
 						<div class="form-group">
 							<label>LastName</label>

@@ -62,15 +62,15 @@ public class EmployeeController {
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("deptInfo", departments);
 
-        System.out.println("ID:" + id + "-----" + employee.getDepartment().getDepartmentName() +  "\n" + employee + "\n" + departments);
+//        System.out.println("ID:" + id + "-----" + employee.getDepartment().getDepartmentName() +  "\n" + employee + "\n" + departments);
         return "/emp/editEmpInfo";
     }
 
     //员工更新的收据
     @PutMapping("/empUpdate")
     public String toUpdateEmp(Employee employee){
-        System.out.print(employee);
+//        System.out.print("修改后的员工信息---" + employee);
         employeeDao.save(employee);
-        return "redirect:/emps/list";
+        return "redirect:/emps";
     }
 }
