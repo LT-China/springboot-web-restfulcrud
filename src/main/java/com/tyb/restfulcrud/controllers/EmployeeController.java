@@ -7,10 +7,7 @@ import com.tyb.restfulcrud.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -37,7 +34,6 @@ public class EmployeeController {
     public String toAddEmployeePage(Model model){
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("deptInfo", departments);
-
         return "/emp/addEmployee";
     }
 
@@ -71,6 +67,13 @@ public class EmployeeController {
     public String toUpdateEmp(Employee employee){
 //        System.out.print("修改后的员工信息---" + employee);
         employeeDao.save(employee);
+        return "redirect:/emps";
+    }
+
+    //员工删除
+    @DeleteMapping("/emps/{id}")
+    public String toDeleteEmp(@PathVariable("id") Integer id){
+        employeeDao.delete(id);
         return "redirect:/emps";
     }
 }

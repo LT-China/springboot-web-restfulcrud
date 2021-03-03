@@ -88,13 +88,20 @@
 									<td th:text="${#calendars.format(emp.birth, 'yyyy-MM-dd')}"></td>
 									<td>
 										<a class="btn btn-sm btn-primary" th:href="@{/emps/}+${emp.id}">Edit</a>
-										<button class="btn btn-sm btn-danger">Remove</button>
+<!--										<form th:action="@{/emps/}+{emp.id}" method="post">-->
+<!--											<input type="hidden" name="_method" value="delete"/>-->
+<!--											<button type="submit" class="btn btn-sm btn-danger">Remove</button>-->
+<!--										</form>-->
+										<button th:attr="del_uri=@{/emp/}+${emp.id}" class="btn btn-sm btn-danger deleteBtn">Remove</button>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</main>
+				<form id="deleteEmpForm" method="post">
+					<input type="hidden" name="_method" value="delete"/>
+				</form>
 			</div>
 		</div>
 
@@ -109,6 +116,14 @@
 		<script type="text/javascript" src="asserts/js/feather.min.js" th:href="@{/asserts/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
+		</script>
+
+		<script>
+			$(".deleteBtn").click(function(){
+				//删除当前员工的
+				$("#deleteEmpForm").attr("action",$(this).attr("del_uri")).submit();
+				return false;
+			});
 		</script>
 
 		<!-- Graphs -->
