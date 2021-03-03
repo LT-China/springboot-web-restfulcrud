@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.Collection;
 
@@ -52,11 +53,24 @@ public class EmployeeController {
         return "redirect:/emps";
     }
 
+    //员工修改页面，查出当前员工信息，在页面显示
     @GetMapping("/emps/{id}")
     public String toEditEmpInfoPage(@PathVariable("id") Integer id, Model model){
-        System.out.println("ID:" + id);
+        Employee employee = employeeDao.get(id);
+        model.addAttribute("emp", employee);
+
         Collection<Department> departments = departmentDao.getDepartments();
         model.addAttribute("deptInfo", departments);
+
+        System.out.println("ID:" + id + "-----" + employee.getDepartment().getDepartmentName() +  "\n" + employee + "\n" + departments);
         return "/emp/editEmpInfo";
+    }
+
+    //员工更新的收据
+    @PutMapping("/empUpdate")
+    public String toUpdateEmp(Employee employee){
+        System.out.print(employee);
+        employeeDao.save(employee);
+        return "redirect:/emps/list";
     }
 }
